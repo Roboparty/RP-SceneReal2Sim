@@ -162,7 +162,7 @@ def build(out):
                    "inputs": [{"path": k, "sha256": v, "role": "intact_profile_input"}
                               for k, v in reg["source"]["files"].items() if (inputs / k).exists()],
                    "scale_evidence": "ChArUco 板 A 实测格长定尺度；桌面 1.8 m×0.805 m 与铃 85 mm 为实测"},
-        "producer": {"repo": "Roboparty/gpt-6-astra-real2sim-workflow", "version": "piper-workcell-20261025",
+        "producer": {"repo": "Roboparty/RP-SceneReal2Sim", "version": "piper-workcell-20261025",
                      "command": "examples/piper_clickbell_workcell_20261025/build_scene.py"},
         "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "units": {"length": "m"}, "up_axis": "Z", "entry": "workcell.usda", "files": files,

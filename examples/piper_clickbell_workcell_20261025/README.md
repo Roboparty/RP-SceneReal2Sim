@@ -30,7 +30,7 @@ python build_scene.py --out scene    # 需要 numpy、usd-core；输出目录必
 rp-real2sim2real validate --check-files scene/manifest.json
 ```
 
-`scene/` 里是生成好的 `workcell.usda`、纹理和 `manifest.json`。
+`scene/` 里是生成好的 `workcell.usda`、纹理和 `manifest.json`。这份清单是 2026-10-25 生成的，已被 RP-Real2Sim2Real 的运行记录引用哈希，所以 `producer.repo` 保留仓库旧名；重新生成会写新名。
 
 ## 和 INTACT 现行场景对过
 

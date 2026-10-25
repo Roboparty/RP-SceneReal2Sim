@@ -2,7 +2,7 @@
 
 从卧室、货架房和杂物房三张照片分别建立可编辑场景。结合确认的床长和两款候选家具规格校正尺寸与摆放，拆分家具部件，并为选定物体设置交互。
 
-[播放 45 秒完整版](https://github.com/Roboparty/gpt-6-astra-real2sim-workflow/raw/refs/heads/main/docs/showcase/media/overview.mp4)
+[播放 45 秒完整版](https://github.com/Roboparty/RP-SceneReal2Sim/raw/refs/heads/main/docs/showcase/media/overview.mp4)
 
 ![实拍与重建](media/comparison.jpg)
 
