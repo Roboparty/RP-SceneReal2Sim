@@ -1,0 +1,140 @@
+{
+  "schema": "rp-workcell-measurements/1",
+  "id": "piper_rgb_workcell_20261026",
+  "units": "m",
+  "targets": "targets.json",
+  "intrinsics": "intrinsics.json",
+  "level_table": true,
+  "scale_evidence": "沿用现行工作台实测：板 A 7×5、格长36mm；桌面1800×805×30mm；铃85×85×45mm、板系(37,-142)mm。未重新测量；将历史桌面z=8mm修正为纸贴桌面z=0，显式记录。",
+  "images": [
+    {
+      "path": "head_0.png",
+      "object_contours_px": {
+        "bell": [
+          [
+            550,
+            302
+          ],
+          [
+            567,
+            305
+          ],
+          [
+            580,
+            315
+          ],
+          [
+            588,
+            328
+          ],
+          [
+            597,
+            343
+          ],
+          [
+            601,
+            359
+          ],
+          [
+            594,
+            375
+          ],
+          [
+            578,
+            386
+          ],
+          [
+            554,
+            393
+          ],
+          [
+            532,
+            390
+          ],
+          [
+            515,
+            381
+          ],
+          [
+            504,
+            365
+          ],
+          [
+            503,
+            351
+          ],
+          [
+            510,
+            333
+          ],
+          [
+            520,
+            315
+          ],
+          [
+            535,
+            305
+          ]
+        ]
+      },
+      "diagnostic_bell_ground_center_px": [
+        551,
+        366
+      ]
+    },
+    {
+      "path": "head_1.png"
+    }
+  ],
+  "table": {
+    "top_corners_board_m": [
+      [
+        -0.7844884308844297,
+        0.4663731517167453,
+        0.0
+      ],
+      [
+        1.0154313050977055,
+        0.46244606405185196,
+        0.0
+      ],
+      [
+        1.0137527766390768,
+        -0.3425079007554863,
+        0.0
+      ],
+      [
+        -0.7861669593430582,
+        -0.33858081309059296,
+        0.0
+      ]
+    ],
+    "thickness_m": 0.03
+  },
+  "objects": [
+    {
+      "name": "bell",
+      "category": "bell",
+      "dimensions_m": [
+        0.085,
+        0.085,
+        0.045
+      ],
+      "base_center_board_m": [
+        0.037,
+        -0.142,
+        0
+      ],
+      "yaw_deg": 0,
+      "graspable": false
+    }
+  ],
+  "measurement_provenance": {
+    "source": "piper_clickbell_workcell_20261025/inputs/registration.json",
+    "source_commit": "8b249d4",
+    "historical_table_z_m": 0.008,
+    "chosen_table_z_m": 0,
+    "reason": "板 A 是纸贴桌面；源 PnP 对象点 z=0，不把旧配准的8mm误差变成真实台阶",
+    "contour_annotation": "head_0 上人工近似描绘可见铃外轮廓，约±2px；不是独立尺量或精确分割。桌面四角在画面外，未伪造其观测误差。"
+  }
+}

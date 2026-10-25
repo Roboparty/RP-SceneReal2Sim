@@ -1,0 +1,22 @@
+{
+  "schema": "rp-workcell-measurements/1",
+  "id": "my_measured_workcell",
+  "units": "m",
+  "targets": "targets.json",
+  "intrinsics": "intrinsics.json",
+  "scale_evidence": "填写打印板实测格长、桌面与物体尺寸的测量方法和日期；模板数字只作示例",
+  "level_table": false,
+  "images": [{"path": "head_rgb.png", "landmarks": [], "object_contours_px": {}}],
+  "table": {
+    "top_corners_board_m": [[-0.6,-0.3,0],[0.8,-0.3,0],[0.8,0.5,0],[-0.6,0.5,0]],
+    "thickness_m": 0.03
+  },
+  "objects": [{
+    "name": "bell",
+    "category": "bell",
+    "dimensions_m": [0.085,0.085,0.045],
+    "base_center_board_m": [0.037,-0.142,0],
+    "yaw_deg": 0,
+    "graspable": false
+  }]
+}

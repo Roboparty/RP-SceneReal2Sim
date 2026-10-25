@@ -6,6 +6,8 @@
 
 **简体中文** | [English](README_EN.md)
 
+**2026-10-26：无需 LLM／Blender 的确定性工作台工具。** 从头部 RGB、板 A 和实测量重新求相机位姿，导出 USD、scene package 和逐帧投影验收图；两张真机图板 A 拟合 RMS 0.399／0.394 px。旧铃位置在新照片中不匹配，独立轮廓 RMS 38.50 px，保留失败和原因。主流程第 8 步也增加 scene package 清单。[通用工具与模板](tools/workcell/README.md) · [真实图验收](examples/piper_rgb_workcell_20261026/README.md)。
+
 **2026-10-25：Piper 双臂 click_bell 工作台。** 真实工作台按板 A 配准、整台转平，导出为 RP-Real2Sim2Real scene package，INTACT 数采现行场景就是它；与 INTACT 现行场景逐点对比最大差 0.000055 mm。[案例说明](examples/piper_clickbell_workcell_20261025/README.md)。
 
 **2026-10-03：相机标定、真实场景对照与几何／纹理修复。** 逐帧 K／位姿贯穿预处理、建模、渲染与结构检查。

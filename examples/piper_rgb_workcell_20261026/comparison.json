@@ -1,0 +1,205 @@
+{
+  "schema": "rp-workcell-intact-comparison/1",
+  "reference": "Actual INTACT real_scene.apply_scene after unified_chain.level_profile; empty USD stage, no physics/GPU or hardware job",
+  "reference_profile": "piper_real_aligned_20261022",
+  "sources": [
+    {
+      "path": "profile.json",
+      "sha256": "4f0f657ca93d98d6298bb339a4d9e3e2f45515aaa0ea23d98b33c403e6f53d7e",
+      "bytes": 6565,
+      "role": "frozen_intact_profile"
+    },
+    {
+      "path": "unified-r5.json",
+      "sha256": "9c0a790f3c747b200407f9ff3bb3b1abdb2cd244037ae5830be28e8c6e110eb8",
+      "bytes": 1059,
+      "role": "frozen_intact_profile"
+    },
+    {
+      "path": "authored_cameras.json",
+      "sha256": "13c439b3ce5f1d0a58af880db5203493c23cd2c3144166e1eaad3a9968580a52",
+      "bytes": 4750,
+      "role": "frozen_intact_profile"
+    },
+    {
+      "path": "calibration_v2.json",
+      "sha256": "4e03cd6f21ac0002b14f93a989f613a1c62bd653ec0a489b713a26c572fb00d8",
+      "bytes": 35088,
+      "role": "frozen_intact_profile"
+    },
+    {
+      "path": "scene_night.usda",
+      "sha256": "dba4677955d035b7368471f5a10180d2f98f940f617a2bdee6466bed291ad15c",
+      "bytes": 6480,
+      "role": "frozen_intact_profile"
+    }
+  ],
+  "apply_scene_receipt": {
+    "profile": "piper_real_aligned_20261022",
+    "removed": [
+      "/World/ReplayScene/BoardB",
+      "/World/ReplayScene/PaperB",
+      "/World/ReplayScene/SupportB"
+    ],
+    "board_A_retained": true,
+    "r5_paper_flush_correction": true,
+    "qr_texture": "qr_paper_only.png",
+    "qr_texture_sha256": "d435271b302e301f74632995a649b4893132522624ec36f742d29c6567d0ca73",
+    "qr_texture_bell_imprint_removed": true,
+    "board_B_removed": true,
+    "frame": "native PhysX world; registered board-A geometry transformed explicitly",
+    "board_A_physical_height_m": 0.0,
+    "board_A_placement_policy": "paper_flush_with_table_no_keepout",
+    "collision_proxies": [
+      "/World/Colliders/RealAlignedTable"
+    ],
+    "source_table_filters_migrated": [],
+    "collision_prior": "registered table 30mm; board A is paper without a separate collider"
+  },
+  "legacy_regression": {
+    "table_visual": {
+      "count": 8,
+      "max_mm": 5.554708151608008e-05,
+      "rms_mm": 3.194768689209951e-05
+    },
+    "table_collision": {
+      "count": 8,
+      "max_mm": 5.554708151608008e-05,
+      "rms_mm": 3.194768689209951e-05
+    },
+    "board_A": {
+      "count": 4,
+      "max_mm": 1.224351883150782e-05,
+      "rms_mm": 7.536769746697449e-06
+    },
+    "paper_A": {
+      "count": 4,
+      "max_mm": 1.1567278246145814e-05,
+      "rms_mm": 7.777714307883862e-06
+    },
+    "qr_sheet": {
+      "count": 4,
+      "max_mm": 6.854419971963946e-06,
+      "rms_mm": 6.360624702246052e-06
+    }
+  },
+  "new_vs_current": {
+    "table_visual": {
+      "raw": {
+        "count": 8,
+        "max_mm": 8.00000037997961,
+        "rms_mm": 7.999999914318335
+      },
+      "after_explicit_8mm_plane_correction": {
+        "count": 8,
+        "max_mm": 5.513429712778381e-07,
+        "rms_mm": 4.734783902397801e-07
+      }
+    },
+    "table_collision": {
+      "raw": {
+        "count": 8,
+        "max_mm": 8.00000037997961,
+        "rms_mm": 7.999999914318335
+      },
+      "after_explicit_8mm_plane_correction": {
+        "count": 8,
+        "max_mm": 5.513429712778381e-07,
+        "rms_mm": 4.734783902397801e-07
+      }
+    },
+    "board_A": {
+      "raw": {
+        "count": 4,
+        "max_mm": 7.999999616004061,
+        "rms_mm": 7.999999616004061
+      },
+      "after_explicit_8mm_plane_correction": {
+        "count": 4,
+        "max_mm": 3.8399593921268593e-07,
+        "rms_mm": 3.839959392126817e-07
+      }
+    },
+    "paper_A": {
+      "status": "not_modelled",
+      "reason": "Not present in this measured fixture; not counted as matching"
+    },
+    "qr_sheet": {
+      "status": "not_modelled",
+      "reason": "Not present in this measured fixture; not counted as matching"
+    }
+  },
+  "cameras": [
+    {
+      "frame_id": "head_000",
+      "new_board_fit_rms_px": 0.3988597488311663,
+      "old_authored_pose_current_K_rms_px": 4.379266708926628,
+      "old_calibration_head_T_current_K_rms_px": 4.379266708926629,
+      "translation_delta_mm": 10.779138070204095,
+      "rotation_delta_deg": 0.9239787632068528
+    },
+    {
+      "frame_id": "head_001",
+      "new_board_fit_rms_px": 0.3939258392989849,
+      "old_authored_pose_current_K_rms_px": 4.389324414665025,
+      "old_calibration_head_T_current_K_rms_px": 4.389324414665027,
+      "translation_delta_mm": 11.549960513852817,
+      "rotation_delta_deg": 0.9808914597933043
+    }
+  ],
+  "historical_unlevelled_table_tilt_deg": 0.7997001012007278,
+  "T_new_world_from_intact_world": [
+    [
+      0.9999977240315312,
+      -0.002133525663682996,
+      5.188002095106228e-10,
+      0.15913410981906997
+    ],
+    [
+      0.0021335256636830216,
+      0.9999977240315296,
+      -5.74855398969564e-08,
+      0.1906164873141591
+    ],
+    [
+      -3.961521548210567e-10,
+      5.748651605697546e-08,
+      0.9999999999999982,
+      -0.004291458641109144
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "historical_head_T_vs_authored_board_max_abs": 2.220446049250313e-16,
+  "historical_calibration_statistics_source": "/home/piper/xhy/intact_piper/artifacts/auto_calib_20261020/resume8_20261020_162634/analysis/fits/combined_none_factory/full/result.json",
+  "historical_calibration_joint_source": "/home/piper/xhy/intact_piper/artifacts/auto_calib_20261020/resume8_20261020_162634/analysis/candidate_cv_factory/joint/result_v2.json",
+  "bell_ground_diagnostic": [
+    {
+      "frame_id": "head_000",
+      "approximate_ground_center_px": [
+        551,
+        366
+      ],
+      "inferred_board_m": [
+        0.03866296103996969,
+        -0.0838479125167601,
+        0.0
+      ],
+      "delta_from_frozen_anchor_mm": [
+        1.6629610399696917,
+        58.15208748323988,
+        0.0
+      ],
+      "scope": "Manual approximate base ellipse centre, ray-plane diagnostic only; not a new tape measurement or accepted replacement anchor"
+    }
+  ],
+  "limitations": [
+    "QR paper and removed board B are not in the measured fixture.",
+    "Bell proxy compared separately to annotated real silhouette, not claimed identical to detailed asset.",
+    "Current-K/old-pose residual isolates extrinsics; historical render intrinsics are not silently substituted."
+  ]
+}

@@ -104,6 +104,9 @@ elif stage=='export':
     run([params['blender'],'-b',str(blend),'-t',str(params.get('threads',8)),'--python-exit-code','12','--python',str(package/'blender_export.py'),'--',str(out/'scene.json'),str(out)],'export_blender.log')
     if packet.get('generation_skills'):
         run([params['blender'],'-b','-t',str(params.get('threads',8)),'--python-exit-code','12','--python',str(package/'interchange.py'),'--',str(out),'--source-model',str(blend),'--source-scene',str(scene)],'interchange_blender.log')
+    if (out/'scene.usdc').is_file():
+        from .scene_package import export_workflow_package
+        export_workflow_package(out, packet['case_id'], packet.get('camera_constraints'))
 elif stage=='validate':
     geometry=find_artifact({'geometry_audit.json'});src=geometry.parent
     for p in src.rglob('*'):

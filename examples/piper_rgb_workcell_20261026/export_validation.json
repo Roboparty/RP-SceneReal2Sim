@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "scope": "Actual workflow export stage, synthetic fixture, Blender 4.5.3, CPU 2 threads; no LLM/GPU",
+  "object_count": 7,
+  "cameras": [
+    {
+      "name": "Camera",
+      "prim_path": "/root/head_observed/Camera",
+      "observed": true
+    }
+  ],
+  "observed_exported_count": 1,
+  "unmapped_audit_entities": [],
+  "files": [
+    "interior_reverse.png",
+    "packet.json",
+    "entity_ids.png",
+    "scene.glb",
+    "manifest.json",
+    "scene.json",
+    "interior_left.png",
+    "scene.usdc",
+    "export_blender.log",
+    "response.json",
+    "scene.blend",
+    "source_view_high.png",
+    "execution_implementation.json",
+    "package_export_receipt.json",
+    "entity_palette.json",
+    "interior_wide.png",
+    "geometry_audit.json",
+    "metadata_export_check.json"
+  ],
+  "workflow_finish_status": "succeeded"
+}

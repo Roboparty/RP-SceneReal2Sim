@@ -1,0 +1,15 @@
+{
+  "targets": {
+    "dictionary": "DICT_5X5_100",
+    "boards": {
+      "A": {
+        "cols": 7,
+        "rows": 5,
+        "square_mm": 36,
+        "marker_mm": 27,
+        "first_id": 0,
+        "legacy_pattern": false
+      }
+    }
+  }
+}

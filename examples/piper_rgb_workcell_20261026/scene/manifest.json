@@ -1,0 +1,178 @@
+{
+  "schema": "rp-real2sim2real/scene-package/1",
+  "id": "piper_rgb_workcell_20261026",
+  "source": {
+    "kind": "manual",
+    "inputs": [
+      {
+        "path": "inputs/measurements.json",
+        "sha256": "bc7e06595317c582ad3b194c0cac881a05d43ed6f1eb8a9235ec2a3a16f2d743",
+        "bytes": 2920,
+        "role": "measurement_evidence"
+      },
+      {
+        "path": "inputs/targets.json",
+        "sha256": "28acb0fc7d333a39554bd7d032cfb0c3ac83f6255ce6338838651feddc320046",
+        "bytes": 258,
+        "role": "measurement_evidence"
+      },
+      {
+        "path": "inputs/intrinsics.json",
+        "sha256": "dbfdcc4372e2a35e29534168959aa5281797077065dd1d1bbe88bbba81b98f60",
+        "bytes": 403,
+        "role": "measurement_evidence"
+      },
+      {
+        "path": "inputs/head_000.png",
+        "sha256": "3bf96f7a1e50507b193afe407e7ce711e0ae3241735d4e87c039c71384e6d891",
+        "bytes": 839216,
+        "role": "measurement_evidence"
+      },
+      {
+        "path": "inputs/head_001.png",
+        "sha256": "f14a07e3994f64ad7ae96241bd8d1bbb30d467f6c4e787ded73ca641ae4aed44",
+        "bytes": 836574,
+        "role": "measurement_evidence"
+      }
+    ],
+    "scale_evidence": "沿用现行工作台实测：板 A 7×5、格长36mm；桌面1800×805×30mm；铃85×85×45mm、板系(37,-142)mm。未重新测量；将历史桌面z=8mm修正为纸贴桌面z=0，显式记录。"
+  },
+  "producer": {
+    "repo": "Roboparty/RP-SceneReal2Sim",
+    "version": "workcell-scene-package-1",
+    "command": "r2s scene package export"
+  },
+  "created_at": "2026-10-25T17:14:55+00:00",
+  "units": {
+    "length": "m"
+  },
+  "up_axis": "Z",
+  "entry": "workcell.usdc",
+  "files": [
+    {
+      "path": "board_A.png",
+      "sha256": "6ecf92d455116d78094c7ac10add94a01046bbf704e5f9c9633c5fe53aadb5ee",
+      "bytes": 27793,
+      "role": "artifact"
+    },
+    {
+      "path": "calibration.json",
+      "sha256": "e9d8b3c019ee9ed5c7d3974a1322561afe9f7a29fb691d72bca236ee83562edd",
+      "bytes": 15625,
+      "role": "artifact"
+    },
+    {
+      "path": "detection_000.json",
+      "sha256": "4ee23ee86305a2d31c3cd0050828d6c70f612dd169b2e8d4fde016d8fa29d3ad",
+      "bytes": 8974,
+      "role": "artifact"
+    },
+    {
+      "path": "detection_001.json",
+      "sha256": "c86037b926ef119670eee3f9e860d957f305952ee0c7a1fb9ed596b57c5ed6bb",
+      "bytes": 9009,
+      "role": "artifact"
+    },
+    {
+      "path": "geometry_board.json",
+      "sha256": "0b406fe1844bcd04b7754e18782cf64f8331835ae4b2129f73d94856a9d098d5",
+      "bytes": 1179,
+      "role": "artifact"
+    },
+    {
+      "path": "inputs/head_000.png",
+      "sha256": "3bf96f7a1e50507b193afe407e7ce711e0ae3241735d4e87c039c71384e6d891",
+      "bytes": 839216,
+      "role": "artifact"
+    },
+    {
+      "path": "inputs/head_001.png",
+      "sha256": "f14a07e3994f64ad7ae96241bd8d1bbb30d467f6c4e787ded73ca641ae4aed44",
+      "bytes": 836574,
+      "role": "artifact"
+    },
+    {
+      "path": "inputs/intrinsics.json",
+      "sha256": "dbfdcc4372e2a35e29534168959aa5281797077065dd1d1bbe88bbba81b98f60",
+      "bytes": 403,
+      "role": "artifact"
+    },
+    {
+      "path": "inputs/measurements.json",
+      "sha256": "bc7e06595317c582ad3b194c0cac881a05d43ed6f1eb8a9235ec2a3a16f2d743",
+      "bytes": 2920,
+      "role": "artifact"
+    },
+    {
+      "path": "inputs/targets.json",
+      "sha256": "28acb0fc7d333a39554bd7d032cfb0c3ac83f6255ce6338838651feddc320046",
+      "bytes": 258,
+      "role": "artifact"
+    },
+    {
+      "path": "overlay_000.png",
+      "sha256": "241a43d3b0fa1fb994c3f18d5f2ddfc7c88630f8786a31a3220d88b27b385b04",
+      "bytes": 837674,
+      "role": "artifact"
+    },
+    {
+      "path": "overlay_001.png",
+      "sha256": "62fb4c8cdb23e8ff8a7bde500608f0e942163650528b9c3c50bba57ffb716b20",
+      "bytes": 834912,
+      "role": "artifact"
+    },
+    {
+      "path": "reprojection.json",
+      "sha256": "5b8b7343a97e9e5733ffa4b347b47df3c265ebd653475289ad67f066da79e130",
+      "bytes": 4317,
+      "role": "artifact"
+    },
+    {
+      "path": "workcell.usdc",
+      "sha256": "a18c35a54cfa50e783f6ef98340f8e24eb67cd7a30f175fdc2966fb365e21d5d",
+      "bytes": 3605,
+      "role": "root_usd"
+    }
+  ],
+  "upstream": [],
+  "objects": [
+    {
+      "name": "table",
+      "prim_path": "/World/Workcell/Table",
+      "category": "table",
+      "graspable": false
+    },
+    {
+      "name": "board_A",
+      "prim_path": "/World/Workcell/BoardA",
+      "category": "calibration_paper",
+      "graspable": false
+    },
+    {
+      "name": "bell",
+      "prim_path": "/World/Objects/bell",
+      "category": "bell",
+      "graspable": false
+    }
+  ],
+  "cameras": [
+    {
+      "name": "head_000",
+      "prim_path": "/World/Cameras/head_000",
+      "observed": true
+    },
+    {
+      "name": "head_001",
+      "prim_path": "/World/Cameras/head_001",
+      "observed": true
+    }
+  ],
+  "support_surfaces": [
+    {
+      "name": "table_top",
+      "prim_path": "/World/Workcell/Table",
+      "height_m": 0.0
+    }
+  ],
+  "notes": "Deterministic RGB board-A head_pnp + measured geometry. D in calibration.json; USD is pinhole. All views retained; no device access or LLM."
+}

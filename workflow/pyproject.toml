@@ -7,7 +7,14 @@ name = "evidence-real2sim"
 version = "0.2.0"
 description = "Evidence-first resumable Real2Sim reconstruction workflow"
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.24", "opencv-python-headless>=4.8", "scipy>=1.10", "mujoco>=3.2", "Pillow>=9"]
+dependencies = ["numpy>=1.24", "opencv-contrib-python-headless>=4.10,<5", "scipy>=1.10", "mujoco>=3.2", "Pillow>=9", "usd-core>=24.11"]
+
+[project.optional-dependencies]
+workcell = ["embodiedreal2sim>=0.1.0", "PyYAML>=6", "opencv-contrib-python-headless>=4.10"]
+
+[project.scripts]
+rp-workcell = "r2s.workcell:main"
+rp-scene-package = "r2s.scene_package:main"
 
 [tool.setuptools]
 packages = ["r2s"]

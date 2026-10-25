@@ -2,6 +2,11 @@
 
 真实工作台的仿真场景，INTACT-data-generation 的 click_bell 数采现在用的就是这个场景。这里把它单独做成 scene package，交给数采端使用，详见 [RP-Real2Sim2Real](https://github.com/Roboparty/RP-Real2Sim2Real)。
 
+这是“从 INTACT 配准导入”的特例，输入已经含旧头部外参和转平矩阵。
+新用户使用[确定性工作台工具](../../tools/workcell/README.md)，从自己的头部 RGB、
+板 A 规格和实测量重新求 PnP；[真实 RGB 验收](../piper_rgb_workcell_20261026/README.md)
+单独报告新旧场景偏差。本目录产物和历史验收结论保留。
+
 ## 里面有什么
 
 | 内容 | 说明 |
