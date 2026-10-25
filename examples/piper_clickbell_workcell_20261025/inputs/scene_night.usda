@@ -1,0 +1,166 @@
+#usda 1.0
+(
+    customLayerData = {
+        bool camera_frozen = 1
+        bool formal = 1
+        bool render_only = 1
+        string scene_refine_version = "v2"
+        string session = "night"
+    }
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def "World"
+{
+    def "SceneRefineMaterials"
+    {
+        def Material "QRSheet"
+        {
+            token outputs:surface.connect = </World/SceneRefineMaterials/QRSheet/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/SceneRefineMaterials/QRSheet/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./qr_multiframe.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </World/SceneRefineMaterials/QRSheet/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Material "BoardB"
+        {
+            token outputs:surface.connect = </World/SceneRefineMaterials/BoardB/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/SceneRefineMaterials/BoardB/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./board_B.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </World/SceneRefineMaterials/BoardB/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Material "PaperB"
+        {
+            token outputs:surface.connect = </World/SceneRefineMaterials/PaperB/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.94, 0.94, 0.92)
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+        }
+
+        def Material "SupportB"
+        {
+            token outputs:surface.connect = </World/SceneRefineMaterials/SupportB/Shader.outputs:surface>
+
+            def Shader "Shader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.025, 0.027, 0.029)
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+        }
+    }
+
+    def "ReplayScene"
+    {
+        def Mesh "QRSheet" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </World/SceneRefineMaterials/QRSheet>
+            point3f[] points = [(0.058729224, -0.32994056, 0.007), (0.26476827, -0.33538383, 0.007), (0.27300614, -0.023563564, 0.007), (0.06696711, -0.018120283, 0.007)]
+            texCoord2f[] primvars:st = [(0, 1), (1, 1), (1, 0), (0, 0)] (
+                interpolation = "vertex"
+            )
+            uniform token subdivisionScheme = "none"
+            uniform token[] xformOpOrder = ["!resetXformStack!"]
+        }
+
+        def Mesh "BoardB" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </World/SceneRefineMaterials/BoardB>
+            point3f[] points = [(0.2915726, -0.016804678, -0.02124693), (0.29132664, -0.23277973, -0.017973399), (0.42823014, -0.23441131, -0.115332395), (0.4284761, -0.018436266, -0.11860593)]
+            texCoord2f[] primvars:st = [(0, 1), (1, 1), (1, 0), (0, 0)] (
+                interpolation = "vertex"
+            )
+            uniform token subdivisionScheme = "none"
+            uniform token[] xformOpOrder = ["!resetXformStack!"]
+        }
+
+        def Mesh "PaperB" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </World/SceneRefineMaterials/PaperB>
+            point3f[] points = [(0.28209725, -0.0046836776, -0.01406717), (0.28182396, -0.24465595, -0.010429912), (0.43828508, -0.24652062, -0.12169734), (0.43855837, -0.006548348, -0.12533459)]
+            uniform token subdivisionScheme = "none"
+            uniform token[] xformOpOrder = ["!resetXformStack!"]
+        }
+
+        def Mesh "SupportB" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 2, 9, 5, 1, 9, 3, 2, 9, 7, 3, 9, 3, 1, 2, 3, 1, 0, 4, 1, 0, 4, 5, 1, 7, 3, 0, 7, 4, 0, 7, 4, 5, 7, 5, 9]
+            rel material:binding = </World/SceneRefineMaterials/SupportB>
+            point3f[] points = [(0.28015488, -0.28678834, 0.0049727075), (0.49443308, -0.2928244, -0.1473614), (0.49247885, 0.016563328, -0.15041006), (0.28110823, 0.01532994, -0.000039880615), (0.28015488, -0.28678834, 0.008), (0.49443308, -0.2928244, 0.008), (0.49247885, 0.016563328, 0.008), (0.28110823, 0.01532994, 0.008), (0.28331846, 0.010374611, 0.008), (0.51566803, 0.023084914, 0.008)]
+            uniform token subdivisionScheme = "none"
+            uniform token[] xformOpOrder = ["!resetXformStack!"]
+        }
+    }
+}
+

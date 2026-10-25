@@ -1,0 +1,106 @@
+{
+  "schema": "rp-real2sim2real/scene-package/1",
+  "id": "piper_clickbell_workcell_20261025",
+  "source": {
+    "kind": "manual",
+    "inputs": [
+      {
+        "path": "scene_night.usda",
+        "sha256": "dba4677955d035b7368471f5a10180d2f98f940f617a2bdee6466bed291ad15c",
+        "role": "intact_profile_input"
+      },
+      {
+        "path": "board_A.png",
+        "sha256": "f9a410274fbb64a6e293b87008319b1bb3ecd3cbcc1d007c6137ba94220f4220",
+        "role": "intact_profile_input"
+      },
+      {
+        "path": "qr_paper_only.png",
+        "sha256": "d435271b302e301f74632995a649b4893132522624ec36f742d29c6567d0ca73",
+        "role": "intact_profile_input"
+      }
+    ],
+    "scale_evidence": "ChArUco 板 A 实测格长定尺度；桌面 1.8 m×0.805 m 与铃 85 mm 为实测"
+  },
+  "producer": {
+    "repo": "Roboparty/gpt-6-astra-real2sim-workflow",
+    "version": "piper-workcell-20261025",
+    "command": "examples/piper_clickbell_workcell_20261025/build_scene.py"
+  },
+  "created_at": "2026-10-25T12:39:12+00:00",
+  "units": {
+    "length": "m"
+  },
+  "up_axis": "Z",
+  "entry": "workcell.usda",
+  "files": [
+    {
+      "path": "board_A.png",
+      "sha256": "f9a410274fbb64a6e293b87008319b1bb3ecd3cbcc1d007c6137ba94220f4220",
+      "bytes": 21002,
+      "role": "texture"
+    },
+    {
+      "path": "qr_paper_only.png",
+      "sha256": "d435271b302e301f74632995a649b4893132522624ec36f742d29c6567d0ca73",
+      "bytes": 1180156,
+      "role": "texture"
+    },
+    {
+      "path": "workcell.usda",
+      "sha256": "c95ee8c20a3eda2fea0af7766395193b43dd3275f5da8af13765745f2317ddeb",
+      "bytes": 9124,
+      "role": "root_usd"
+    }
+  ],
+  "objects": [
+    {
+      "name": "table",
+      "prim_path": "/World/Workcell/Table",
+      "category": "table",
+      "graspable": false
+    },
+    {
+      "name": "board_A",
+      "prim_path": "/World/Workcell/BoardA",
+      "category": "calibration_paper",
+      "graspable": false
+    },
+    {
+      "name": "qr_sheet",
+      "prim_path": "/World/Workcell/QRSheet",
+      "category": "paper",
+      "graspable": false
+    },
+    {
+      "name": "bell",
+      "prim_path": "/World/Objects/BellProxy",
+      "category": "bell",
+      "graspable": false
+    }
+  ],
+  "support_surfaces": [
+    {
+      "name": "table_top",
+      "prim_path": "/World/Workcell/Table",
+      "height_m": -0.0037085268640563336
+    }
+  ],
+  "cameras": [
+    {
+      "name": "head",
+      "prim_path": "/World/Cameras/head",
+      "observed": true
+    }
+  ],
+  "robot_constraints": {
+    "robots": [
+      "piper-dual"
+    ]
+  },
+  "simulators": [
+    "isaacsim",
+    "physx"
+  ],
+  "notes": "与 INTACT click_bell 现行场景几何一致（unified r5 转平、板 A 纸贴平、去板 B）。机器人、腕部相机和支架在 robot package 里，不在场景包。铃为代理体，正式资产 050_bell-0。"
+}

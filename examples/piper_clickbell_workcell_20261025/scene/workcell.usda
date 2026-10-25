@@ -1,0 +1,229 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    customData = {
+        string frame = "PhysX native world, leveled (unified r5)"
+    }
+)
+{
+    def DomeLight "Light"
+    {
+        float inputs:intensity = 1000
+    }
+
+    def "Looks"
+    {
+        def Material "Table"
+        {
+            token outputs:surface.connect = </World/Looks/Table/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.73, 0.72, 0.69)
+                float inputs:roughness = 0.85
+                token outputs:surface
+            }
+        }
+
+        def Material "BoardA"
+        {
+            token outputs:surface.connect = </World/Looks/BoardA/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/Looks/BoardA/Texture.outputs:rgb>
+                float inputs:roughness = 0.85
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./board_A.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </World/Looks/BoardA/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "PaperA"
+        {
+            token outputs:surface.connect = </World/Looks/PaperA/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.94, 0.94, 0.92)
+                float inputs:roughness = 0.85
+                token outputs:surface
+            }
+        }
+
+        def Material "QRSheet"
+        {
+            token outputs:surface.connect = </World/Looks/QRSheet/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                color3f inputs:diffuseColor.connect = </World/Looks/QRSheet/Texture.outputs:rgb>
+                float inputs:roughness = 0.85
+                token outputs:surface
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @./qr_paper_only.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </World/Looks/QRSheet/UV.outputs:result>
+                color3f outputs:rgb
+            }
+        }
+
+        def Material "Bell"
+        {
+            token outputs:surface.connect = </World/Looks/Bell/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.75, 0.62, 0.25)
+                float inputs:roughness = 0.85
+                token outputs:surface
+            }
+        }
+    }
+
+    def "Workcell"
+    {
+        def Mesh "Table" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0]
+            rel material:binding = </World/Looks/Table>
+            point3f[] points = [(-0.9450221, -0.6549749, -0.0037085041), (0.8549019, -0.654888, -0.0037085034), (0.8549408, 0.15006772, -0.0037085495), (-0.94498324, 0.14998081, -0.0037085502), (-0.9450221, -0.6549749, -0.033708505), (0.8549019, -0.654888, -0.0337085), (0.8549408, 0.15006772, -0.03370855), (-0.94498324, 0.14998081, -0.03370855)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "BoardA" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </World/Looks/BoardA>
+            point3f[] points = [(-0.15954043, -0.19027653, -0.0036085304), (0.09245899, -0.19081418, -0.0036085304), (0.09207496, -0.3708138, -0.00360852), (-0.15992446, -0.37027612, -0.0036085201)]
+            texCoord2f[] primvars:st = [(0, 1), (1, 1), (1, 0), (0, 0)] (
+                interpolation = "vertex"
+            )
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "PaperA" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </World/Looks/PaperA>
+            point3f[] points = [(-0.17151481, -0.17825097, -0.0036585312), (0.104484566, -0.17883982, -0.003658531), (0.10404933, -0.38283935, -0.0036585194), (-0.17195004, -0.3822505, -0.0036585194)]
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "QRSheet" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </World/Looks/QRSheet>
+            point3f[] points = [(-0.10010741, 0.13953798, -0.0035585496), (0.105942786, 0.14454164, -0.0035585498), (0.11351536, -0.16729549, -0.0035585319), (-0.09253482, -0.17229918, -0.0035585316)]
+            texCoord2f[] primvars:st = [(0, 1), (1, 1), (1, 0), (0, 0)] (
+                interpolation = "vertex"
+            )
+            uniform token subdivisionScheme = "none"
+        }
+    }
+
+    def "Colliders"
+    {
+        def Mesh "Table" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0]
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            point3f[] points = [(-0.9450221, -0.6549749, -0.0037085041), (0.8549019, -0.654888, -0.0037085034), (0.8549408, 0.15006772, -0.0037085495), (-0.94498324, 0.14998081, -0.0037085502), (-0.9450221, -0.6549749, -0.033708505), (0.8549019, -0.654888, -0.0337085), (0.8549408, 0.15006772, -0.03370855), (-0.94498324, 0.14998081, -0.03370855)]
+            uniform token subdivisionScheme = "none"
+        }
+    }
+
+    def "Objects"
+    {
+        def Mesh "BellProxy" (
+            prepend apiSchemas = ["MaterialBindingAPI", "PhysicsCollisionAPI", "PhysicsMeshCollisionAPI"]
+            customData = {
+                string replace_with_asset_id = "050_bell-0"
+            }
+        )
+        {
+            uniform bool doubleSided = 1
+            int[] faceVertexCounts = [4, 4, 4, 4, 4, 4]
+            int[] faceVertexIndices = [0, 1, 2, 3, 4, 7, 6, 5, 0, 4, 5, 1, 1, 5, 6, 2, 2, 6, 7, 3, 3, 7, 4, 0]
+            rel material:binding = </World/Looks/Bell>
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            point3f[] points = [(-0.16464679, -0.0057652225, -0.0037085412), (-0.079646975, -0.0059465724, -0.0037085412), (-0.07982833, -0.09094638, -0.0037085363), (-0.16482814, -0.09076503, -0.0037085363), (-0.16464679, -0.00576522, 0.04129146), (-0.079646975, -0.0059465696, 0.04129146), (-0.07982833, -0.09094638, 0.041291464), (-0.16482814, -0.09076503, 0.041291464)]
+            uniform token subdivisionScheme = "none"
+        }
+    }
+
+    def "Cameras"
+    {
+        def Camera "head"
+        {
+            float2 clippingRange = (0.01, 10)
+            float focalLength = 0.25691277
+            float horizontalAperture = 0.36
+            float horizontalApertureOffset = 0.00026378632
+            float verticalAperture = 0.24
+            float verticalApertureOffset = 0.005768557
+            matrix4d xformOp:transform = ( (0.9999910997381335, 0.0027740353039810784, -0.0031411389790463717, 0), (-0.00030013658219399966, 0.7950318560952886, 0.6065674070481759, 0), (0.004179945950737113, -0.6065612102841493, 0.795025802241963, 0), (-0.043432881415775386, -0.5739515780883961, 0.6015575362538316, 1) )
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+}
+

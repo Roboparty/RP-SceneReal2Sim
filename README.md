@@ -4,6 +4,8 @@
 
 **简体中文** | [English](README_EN.md)
 
+**2026-10-25：Piper 双臂 click_bell 工作台。** 真实工作台按板 A 配准、整台转平，导出为 RP-Real2Sim2Real scene package，INTACT 数采现行场景就是它；与 INTACT 现行场景逐点对比最大差 0.000055 mm。[案例说明](examples/piper_clickbell_workcell_20261025/README.md)。
+
 **2026-10-03：相机标定、真实场景对照与几何／纹理修复。** 逐帧 K／位姿贯穿预处理、建模、渲染与结构检查。
 ETH3D 收货区保留原生流程与 AWSM 协议移植的独立对照；后续修复原生候选的外壳、部件变换与源照片纹理。
 修复版复用的测试集已经暴露，按诊断结果报告；失败候选、局部回归和原生验收边界均保留。
