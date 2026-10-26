@@ -14,7 +14,7 @@
 | 桌面 | 配准的 1.8 m×0.805 m 桌面，30 mm 厚，视觉和碰撞分开 |
 | 板 A | 打印 ChArUco 板，0.252 m×0.18 m，纸贴在桌面上，物理高度 0，不单独建碰撞 |
 | QR 纸 | scene_refine v2 配准的四角，贴平到桌面，用去掉铃印的纹理 |
-| 铃 | 真机原位（板 A 系 (0.037, -0.142) m），85×85×45 mm 代理体，正式资产 `050_bell-0` |
+| 铃 | 真机原位（板 A 系 (0.037, -0.142) m），场景里放 85×85×45 mm 碰撞代理体；RoboTwin `050_bell/base0` 原始三个文件（外观、碰撞、尺寸配置）在 [assets/050_bell_base0](assets/050_bell_base0/NOTICE.md)，随场景包一起发布，INTACT 用 `--bell-source-root` 直接读取 |
 | 头部相机 | authored 外参，随整台转平 |
 
 机器人、腕部相机、相机支架不在场景包里，在 robot package 里。板 B 真机已经撤掉，这里也不放。
@@ -57,8 +57,7 @@ rp-real2sim2real validate --check-files scene/manifest.json
 3、旧的纹理 DomeLight 会让 Isaac RGB 全黑，要换成中性 DomeLight；
 4、QR 纸原纹理上有铃的印子，换成 `qr_paper_only.png`。
 
-## 还没做的
+## 接下来
 
-1、铃还是代理体，没有带 RoboTwin 资产，按钮行程和声音不仿真；
-2、只有夜间灯光层（scene_refine v2 night），白天光照没有单独标定；
-3、头部相机的畸变留在标定 JSON 里，USD 只存 pinhole。
+1、补白天光照层，和现有夜间层（scene_refine v2 night）并列；
+2、头部相机畸变现在放在标定 JSON 里，USD 存 pinhole，渲染端按 JSON 去畸变。

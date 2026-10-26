@@ -153,8 +153,16 @@ def build(out):
     c.CreateClippingRangeAttr(Gf.Vec2f(.01, 10.))
     stage.GetRootLayer().Save()
 
-    files = [{"path": p.name, "sha256": sha256(p), "bytes": p.stat().st_size,
-              "role": "root_usd" if p.suffix == ".usda" else "texture"} for p in sorted(out.iterdir())]
+    # 铃铛 RoboTwin 050_bell/base0 原样随包：外观、碰撞、尺寸配置
+    bell_src = HERE / "assets" / "050_bell_base0"
+    bell_src_out = out / "assets" / "050_bell_base0"
+    bell_roles = {"model_data0.json": "object_config", "visual/base0.glb": "object_visual", "collision/base0.glb": "object_collision"}
+    for rel in bell_roles:
+        dst = out / "assets" / "050_bell_base0" / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(bell_src / rel, dst)
+    files = [{"path": p.relative_to(out).as_posix(), "sha256": sha256(p), "bytes": p.stat().st_size,
+              "role": "root_usd" if p.suffix == ".usda" else bell_roles.get(p.relative_to(bell_src_out).as_posix(), "texture") if p.is_relative_to(bell_src_out) else "texture"} for p in sorted(q for q in out.rglob("*") if q.is_file())]
     manifest = {
         "schema": "rp-real2sim2real/scene-package/1",
         "id": "piper_clickbell_workcell_20261025",
@@ -170,7 +178,8 @@ def build(out):
             {"name": "table", "prim_path": "/World/Workcell/Table", "category": "table", "graspable": False},
             {"name": "board_A", "prim_path": "/World/Workcell/BoardA", "category": "calibration_paper", "graspable": False},
             {"name": "qr_sheet", "prim_path": "/World/Workcell/QRSheet", "category": "paper", "graspable": False},
-            {"name": "bell", "prim_path": "/World/Objects/BellProxy", "category": "bell", "graspable": False},
+            {"name": "bell", "prim_path": "/World/Objects/BellProxy", "category": "bell", "graspable": False,
+             "asset_files": ["assets/050_bell_base0/model_data0.json", "assets/050_bell_base0/visual/base0.glb", "assets/050_bell_base0/collision/base0.glb"]},
         ],
         "support_surfaces": [{"name": "table_top", "prim_path": "/World/Workcell/Table", "height_m": float(table[:4, 2].mean())}],
         "cameras": [{"name": "head", "prim_path": "/World/Cameras/head", "observed": True}],
