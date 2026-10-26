@@ -22,6 +22,10 @@ python -m pip install -e "./workflow[workcell]"
 
 ## 准备新工作台
 
+按步骤带图的做法（工位俯视/侧视图、头部拍照要求、量哪些尺寸、叠加图怎么看）见
+[RP-Real2Sim2Real 实施手册第 5 节](https://github.com/Roboparty/RP-Real2Sim2Real/blob/main/docs/new-user-quickstart.md#5-工作台场景rp-scenereal2sim)。
+照片里只需要板 A，不需要另贴二维码。
+
 1. 在桌面固定打印板 A，实测格长。板规格沿用
    [RP-RoboReal2Sim targets 配置](https://github.com/Roboparty/RP-RoboReal2Sim/blob/main/configs/piper_dual.yaml)，
    支持完整配置外层 `targets`，或直接填写 targets 映射。
