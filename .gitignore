@@ -35,3 +35,7 @@ checkpoints/
 OPERATOR_*
 READING_ARCHIVE*
 real2sim_reading*
+
+# click_bell 铃铛（RoboTwin 050_bell/base0）原样随工作台案例发布
+!examples/piper_clickbell_workcell_20261025/assets/050_bell_base0/visual/base0.glb
+!examples/piper_clickbell_workcell_20261025/assets/050_bell_base0/collision/base0.glb
