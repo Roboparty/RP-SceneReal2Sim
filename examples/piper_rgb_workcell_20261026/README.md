@@ -33,7 +33,7 @@ python tools/workcell/test_workcell.py
 铃 85×85×45 mm，底座中心 (37,-142) mm；没有声称本轮重新尺量。
 旧 registration 桌面 z=8 mm，新例明确改为 z=0，使物理桌面与 PnP 的纸面一致。
 仅第一张图标注近似铃轮廓（约 ±2 px），全部固定输入保存在 measurements 中。
-照片中的 QR 纸、板 B 和左下部件没有新尺量，未纳入本例；不能视为匹配。
+照片中的板 B 和左下部件没有新尺量，未纳入本例；不能视为匹配。
 
 ## 实测结果
 
@@ -53,7 +53,7 @@ python tools/workcell/test_workcell.py
 [reprojection.json](scene/reprojection.json)。未标注第二帧铃轮廓，未给它编造分数。
 桌面四角均在画幅外，只显示其投影及可见桌边，没有四角实拍真值。
 
-![第一张 RGB 的投影验收图：板 A 对齐，红色铃代理轮廓偏离紫色实拍轮廓](scene/overlay_000.png)
+![第一张 RGB 的投影验收图：板 A 对齐，红色铃代理轮廓偏离紫色实拍轮廓](figures/overlay_000.png)
 
 ## 原因与边界
 

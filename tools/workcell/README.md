@@ -1,7 +1,7 @@
 # 确定性工作台生成
 
 用头部 RGB、相机内参、打印板 A 规格和尺量数据生成工作台。
-工具只调用 `embodiedreal2sim` 的检测与 `solve_head_pnp`，不调用 LLM、
+工具只调用 RP-RoboReal2Sim 的检测与 `solve_head_pnp`，不调用 LLM、
 不启动 Blender、不访问设备。旧照片重建流程继续保留。
 
 ## 安装

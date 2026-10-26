@@ -1,7 +1,5 @@
 # RP-SceneReal2Sim
 
-仓库原名 gpt-6-astra-real2sim-workflow（GPT-6 Astra Real2sim workflow），2026-10-26 改名。
-
 ### 单图驱动的可编辑 Real2Sim：联网检索 · 铰链交互 · 布料与柔体
 
 **简体中文** | [English](README_EN.md)

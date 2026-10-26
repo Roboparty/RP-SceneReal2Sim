@@ -1,4 +1,4 @@
-# GPT-6 Astra Real2sim workflow：来源与发布范围
+# RP-SceneReal2Sim：来源与发布范围
 
 ## 2026-09-25 三场景展示补充
 

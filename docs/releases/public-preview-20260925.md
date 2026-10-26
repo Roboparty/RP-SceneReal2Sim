@@ -1,8 +1,8 @@
 # Public preview — 2026-09-25
 
-Project: **GPT-6 Astra Real2sim workflow**
+Project: **RP-SceneReal2Sim**
 
-Repository: **Roboparty/gpt-6-astra-real2sim-workflow**
+Repository: **Roboparty/RP-SceneReal2Sim**
 
 This release presents the previously verified implementation as a community research-engineering workflow for robotics and embodied-AI developers.
 

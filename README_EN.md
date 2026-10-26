@@ -1,7 +1,5 @@
 # RP-SceneReal2Sim
 
-Formerly gpt-6-astra-real2sim-workflow (GPT-6 Astra Real2sim workflow); renamed on 2026-10-26.
-
 ### Single-image Real2Sim with editable scenes, web retrieval, hinges and deformables
 
 [简体中文](README.md) | **English**

@@ -1,4 +1,4 @@
-# GPT-6 Astra Real2sim workflow：仓库与完整交付
+# RP-SceneReal2Sim：仓库与完整交付
 
 本仓库版本化源码、契约、案例说明、主要 JSON 证据和小型预览。大型生成物保存在远端，未通过本机中转。
 
