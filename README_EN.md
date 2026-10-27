@@ -1,3 +1,5 @@
+> 本仓库已并入 [RAS](https://github.com/Roboparty/RAS)，后续开发在 RAS 进行。 This repository has been merged into [RAS](https://github.com/Roboparty/RAS); future development takes place in RAS.
+
 # RP-SceneReal2Sim
 
 ### Single-image Real2Sim with editable scenes, web retrieval, hinges and deformables

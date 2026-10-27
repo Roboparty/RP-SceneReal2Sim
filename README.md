@@ -1,3 +1,5 @@
+> 本仓库已并入 [RAS](https://github.com/Roboparty/RAS)，后续开发在 RAS 进行。 This repository has been merged into [RAS](https://github.com/Roboparty/RAS); future development takes place in RAS.
+
 # RP-SceneReal2Sim
 
 ### 单图驱动的可编辑 Real2Sim：联网检索 · 铰链交互 · 布料与柔体
